@@ -1,0 +1,151 @@
+.carousel{
+    max-inline-size: 1300px;
+    inline-size: 100%;
+    overflow: hidden;
+    position: relative;
+    block-size: calc(100vh - 3rem);
+
+    @include tabplus{
+        block-size: 800px;
+    }
+    
+    &__track{
+        block-size: 100%;
+        
+        &-container{
+            block-size: 100%;
+            position: relative;
+
+            .buttons{
+                position: absolute;
+                top: 36.5%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: white;
+                block-size: 40px;
+                inline-size: 80px;
+                z-index: 2;
+                border-radius: 80px;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-inline: 10px;
+
+                @include tabplus{
+                    top: 71%;
+                    left: 60%;
+
+                inline-size: 112px;
+                block-size: 56px;
+                padding-inline: 24px;
+
+                }
+
+                button{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__slide{
+        display: grid;
+        gap: 2rem;
+        position: absolute;
+        inline-size: 100%;
+        opacity: 0;
+        transform: opacity 1000ms ease-in;
+
+        &.visible{
+            opacity: 1;
+            transform: opacity 1000ms ease-in;
+        }
+
+        @include tabplus{
+            grid-template-columns: auto 1fr;
+        }
+
+        &-image{
+            inline-size: 100%;
+            block-size: 308px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('../../images/pattern-bg.svg');
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+
+            @include tabplus{
+                block-size: 648px;
+                inline-size: 724px;
+            }
+
+       
+
+            .image{
+                block-size: 15.875rem;
+                inline-size: 15.875rem;
+                overflow: hidden;
+                
+                @include tabplus{
+                    block-size: 540px;
+                    inline-size: 540px;
+                }
+
+                img{
+                max-height: 100%;
+                max-width: 100%;
+                }
+            }
+        }
+
+        &-testimonial{
+            background: url('../../images/pattern-quotes.svg');
+            background-size: 17%;
+            background-position: 50% top;
+            background-repeat: no-repeat;
+            
+            padding-block: 1.5rem;
+            display: grid;
+            gap: 1.1875rem;
+            text-align: center;
+    
+            @include tabplus{
+                grid-row: 1;
+                align-self: center;
+                text-align: left;
+                transform: translateX(30%);
+    
+                background-position: 20% top;
+            }
+    
+            .name{
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 20px;
+    
+                @include tabplus{
+                    font-size: 20px;
+                    line-height: 38px;
+                    font-weight: 700;
+    
+                    display: flex;
+                    gap: 1rem;
+                }
+                
+    
+                span{
+                    color: var(--Grayish-Blue);
+                    @include tabplus{
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
